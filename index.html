@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sneakers</title>
+        
+        <style>
+            /* Chat containers */
+            .container {
+              border: 2px solid #dedede;
+              background-color: #f1f1f1;
+              border-radius: 5px;
+              padding: 10px;
+              margin: 10px 0;
+            }
+
+            /* Darker chat container */
+            .darker {
+              border-color: #ccc;
+              background-color: #ddd;
+            }
+
+            /* Clear floats */
+            .container::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+
+            /* Style images */
+            .container img {
+              float: left;
+              max-width: 60px;
+              width: 100%;
+              margin-right: 20px;
+              border-radius: 50%;
+            }
+
+            /* Style the right image */
+            .container img.right {
+              float: right;
+              margin-left: 20px;
+              margin-right:0;
+            }
+
+            /* Style time text */
+            .time-right {
+              float: right;
+              color: #aaa;
+            }
+
+            /* Style time text */
+            .time-left {
+              float: left;
+              color: #999;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <div id="chatBox">
+        
+        
+            
+        </div>
+    
+        
+        <div>
+            <p id="typeNotifier" style="display: none;">Sneakers is typing... </p>
+            <textarea id="userInput" name="w3review" rows="4" cols="190" placeholder="Type here to send a message to Sneakers. Press Enter to send." ></textarea>
+        </div>
+        
+        <script>
+            function random(items){
+                var item = items[Math.floor(Math.random() * items.length)]; 
+                return item;
+             }
+            
+            let responses = ["Yes", "No", "Maybe", "I do not know what you are saying", "Que?", "Que paso", "Good question...", "Let me get the chancla", "Wendi says I don't know", "put it in the chat", "Access denied"]; 
+            
+            let responseTimes = [3000, 5000, 2000, 4000]
+            
+            let input = document.getElementById("userInput");
+            let chatBox = document.getElementById("chatBox");
+            
+            
+            input.addEventListener("keyup", function(event){
+                let message = input.value;
+                let newMessageBox = document.createElement('div');
+                newMessageBox.classList.add("container");
+                newMessageBox.innerHTML = `<img src="/w3images/bandmember.jpg" alt="Avatar">
+                <p>${message}</p>
+                <span class="time-right">11:02</span>`;
+                
+                if(event.keyCode == 13){
+                event.preventDefault();
+                
+                    input.value = " ";
+                    chatBox.appendChild(newMessageBox);
+                }
+                    typeNotifier.style.display = "block";
+                
+                console.log(message);
+                
+                    if(message == "hello".toLowerCase){
+                        responses ="Hi"
+                    }else{
+                        response = "wait, what?"
+                    }
+                
+                    setTimeout(function(){
+                    
+                     let newAIresponse = document.createElement('div');
+                newAIresponse.classList.add("container");
+               
+                        newAIresponse.classList.add("darker");
+                        
+                        
+                newAIresponse.innerHTML = `<img src="/w3images/bandmember.jpg" alt="Avatar">
+                <p>${message}</p>
+                <span class="time-right">11:02</span>`;
+                
+                    
+                typeNotifier.style.display = "none";        
+                        
+                },random(responseTimes));
+                
+                
+                
+                
+            
+                
+            
+                                   
+                                   
+                                   
+                                   
+                });
+            
+            
+            
+        
+        </script>
+    </body>
+
+
+</html>

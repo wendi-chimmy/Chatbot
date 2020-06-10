@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style>
+            /* Chat containers */
+            .container {
+              border: 2px solid #dedede;
+              background-color: #f1f1f1;
+              border-radius: 5px;
+              padding: 10px;
+              margin: 10px 0;
+            }
+            /* Darker chat container */
+            .darker {
+              border-color: #ccc;
+              background-color: #ddd;
+            }
+            /* Clear floats */
+            .container::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+            /* Style images */
+            .container img {
+              float: left;
+              max-width: 60px;
+              width: 100%;
+              margin-right: 20px;
+              border-radius: 50%;
+            }
+            /* Style the right image */
+            .container img.right {
+              float: right;
+              margin-left: 20px;
+              margin-right:0;
+            }
+            /* Style time text */
+            .time-right {
+              float: right;
+              color: #aaa;
+            }
+            /* Style time text */
+            .time-left {
+              float: left;
+              color: #999;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="chatBox">
+        <div class="container">
+          <img src="/w3images/bandmember.jpg" alt="Avatar">
+          <p>Hello. How are you today?</p>
+          <span class="time-right">11:00</span>
+        </div>
+        <div class="container darker">
+          <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">
+          <p>Hey! I'm fine. Thanks for asking!</p>
+          <span class="time-left">11:01</span>
+            </div>
+        </div>
+        <div>
+                <p id="typeNotifier" style="display: none;">AI Wendi is typing...</p>
+                <textarea id="userInput" rows="4" cols="190" placeholder="Type here to send message AI Wendi"></textarea>
+                <button style="display: none;" id="myBtn" onclick="javascript:alert('Hello World!')">Button</button>
+        </div>  
+        <script>
+            function random(items){
+                var item = items[Math.floor(Math.random() * items.length)]; 
+                return item;
+             }
+            var input = document.getElementById("userInput");
+            let aIResponses = ['Really now?', 'If you say so...', 'I am really not sure', 'Lebron James'];
+            let aIResponseTimes = [5000, 3000, 8000, 4000, 2000];
+            input.addEventListener("keyup", function(event) {
+                let typeNotifier = document.getElementById("typeNotifier");
+                let chatBox = document.getElementById("chatBox");
+                let message = input.value;
+                console.log(input.innerHTML);
+                let newMessageBox = document.createElement('div');
+                newMessageBox.classList.add("container");
+                newMessageBox.innerHTML = `
+                    <img src="/w3images/bandmember.jpg" alt="Avatar">
+                    <p>${message}</p>
+                    <span class="time-right">11:02</span>
+                    `;
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    chatBox.appendChild(newMessageBox);
+                    console.log(input);
+                    input.value = " ";
+                     typeNotifier.style.display = "block";
+                    console.log(message.toString === "What is your favorite color?");
+                    console.log(typeof message);
+                    console.log("Hello");
+                  
+                    
+                    
+                    
+                    3:32
+message = message.replace(/(\r\n|\n|\r)/gm, "");
+
+brandon  3:49 PM
+if (message.includes("how are you") ) {
+                        text = "I'm pretty alright since I'm a computer program.";
+                    }else if (message.includes("What is your favorite genre?")){
+                       text = "Kpop"; 
+                    }else if (message.includes("What is your favorite fast food restaurant?")){
+                       text = "Chick fil a"; 
+                    }else if (message.includes("What is your favorite color?")){
+                       text = "Purple"; 
+                    }else if (message.includes("What is your favorite Streaming Service?")){
+                       text = "Netflix"; 
+                    }else if (message.includes("What is your favorite drink?")){
+                       text = "Bubble Tea"; 
+                    }else if (message.includes("What is your favorite hobby?")){
+                       text = "Do makeup"; 
+                    }else if (message.includes("What is your favorite Group?")){
+                       text = "BTS, Ateez, NCT and Stray Kids"; 
+                    }else if (message.includes("What is your favorite Soda?")){
+                       text = "Sprite"; 
+                    }else if (message.includes("How many concerts have you gone to?")){
+                       text = "Two; 
+                    }else if (message.includes("What is your favorite show?")){
+                       text = "Itaewon Class"; 
+                    }else if (message.includes("What is your favorite Childhood toy?")){
+                       text = "Cooking set"; 
+                    }else if (message.includes("What is your favorite asthetic?")){
+                       text = "Soft, with a little bit of grudge asthetic"; 
+                    }else if (message.includes("What is your favorite dish?")){
+                       text = "Ramen"; 
+                    }else if (message.includes("What is your favorite online store?")){
+                       text = "YesStyle"; 
+                    }else if (message.includes("What is your favorite sports?")){
+                       text = "soccer"; 
+                    }else if (message.includes("What is your favorite childhood kids show?")){
+                       text = "Hannah Montana and Dora the explorer"; 
+                    }else if (message.includes("What is your favorite fruit?")){
+                       text = "Strawberries"; 
+                    }else if (message.includes("What is your favorite Store?")){
+                       text = "Urban outfitters"; 
+                    }else if (message.includes("What is your desire place to live?")){
+                       text = "A nice apartment in LA"; 
+                    }else if (message.includes("What is your favorite mexican dish?")){
+                       text = "Tacos"; 
+                    }
+                    else{
+                        text = "Mmmm. My responses are limited. Looking forward to the Weekend.";
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    console.log(message);
+                    console.log(text);
+                    setTimeout(function(){ 
+                        let newaIResponse = document.createElement('div');
+                        newaIResponse.classList.add("container");
+                        newaIResponse.classList.add("darker");
+                        newaIResponse.innerHTML = `
+                        <img src="/w3images/bandmember.jpg" alt="Avatar">
+                        <p>${text}</p>
+                        <span class="time-right">11:02</span>
+                        `;
+                        chatBox.appendChild(newaIResponse);
+                        typeNotifier.style.display = "none";
+                    }, random(aIResponseTimes));
+                }
+            });
+        </script>
+    </body>
+</html>
